@@ -1,11 +1,19 @@
-function App() {
-  const [count, setCount] = useState(0)
+import { Container } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import UserPage from "./pages/UserPage";
+import PostPage from "./pages/PostPage";
 
+function App() {
   return (
-    <>
-    hi
-    </>
-  )
+    <Container maxW="620px">
+      <Header />
+      <Routes>
+        <Route path="/:username" element={<UserPage />} />
+        <Route path="/:username/post/:pid" element={<PostPage />} />
+      </Routes>
+    </Container>
+  );
 }
 
-export default App
+export default App;
